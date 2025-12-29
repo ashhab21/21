@@ -1,0 +1,54 @@
+body{margin:0;background:#0b1220;color:#fff}
+body.light{background:#f4f4f4;color:#111}
+.top{display:flex;justify-content:space-between;align-items:center;padding:12px}
+.card-grid{display:grid;grid-template-columns:repeat(2, 1fr);gap:14px;padding:12px;}
+@media (min-width:768px){.card-grid{grid-template-columns:repeat(8, 1fr); /* أغلفة على الكمبيوتر */}}
+
+.card{background:#020617;border-radius:12px;overflow:hidden;text-decoration:none;color:inherit}
+.card img{width:100%}
+.card-info{padding:8px;font-size:12px}
+/* .hero-info{max-width:70%} */
+.player-wrap{max-width:900px;margin:0 auto 20px;position: relative;z-index: 9999;touch-action: manipulation;}
+
+/* الفيديو */
+video,iframe{/* height:400px; */width:100%;/* max-width:400px; */margin-top:8px;display:none;border-radius:12px;touch-action: pan-x pan-y;}
+/* .episodes button{background:#dc2626;color:#fff;border:0;border-radius:999px;padding:8px 14px;cursor:pointer;white-space:nowrap} */
+.back{display:block;padding:12px;color:#9ca3af;text-decoration:none}
+body{margin:0;font-family:'Cairo',system-ui;background:#0b1220;color:#fff}
+
+/* ====== الشعار ====== */
+.logo{font-size:22px;font-weight:900;display:flex;gap:6px;text-align: center;}
+.logo span{color:#9ca3af;}
+.logo strong{color:#f43f5e;position:relative;}
+.logo strong span{color:#fde047;font-size:14px;margin-right:4px;}
+.logo strong::after{content:'';position:absolute;bottom:-4px;right:0;width:100%;height:3px;background:linear-gradient(90deg,#f43f5e,#fde047);border-radius:3px;animation:glow 2s infinite alternate;}
+@keyframes glow{from{opacity:.4}to{opacity:1}}
+
+/* ====== الكروت ====== */
+.card{background:#020617;border-radius:16px;overflow:hidden;transition:.3s;position:relative;}
+.card:hover{transform:scale(1.04);box-shadow:0 10px 30px rgba(0,0,0,.5);}
+
+/* ====== أزرار الحلقات (أكبر وأفخم) ====== */
+/* الأزرار */
+.episodes{position:sticky;top:0;z-index:20;/* background:#020617; */display:flex;flex-wrap:wrap;gap:1px;/* padding:10px 12px; *//* border-radius:12px; */margin-top:-170px;}
+.episodes button{background:rgba(15,23,42,.30);backdrop-filter:blur(6px);color:#fff;border:0;border-radius:999px;padding:12px 20px;font-size:17px;font-weight:700;cursor:pointer;white-space:nowrap;transition:.25s;margin:5px auto;}
+.episodes button:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,63,94,.4);}
+/* سحب ناعم للحلقات عند الكثرة */
+.episodes.scrollable{max-height: 55vh;       /* ارتفاع مناسب للموبايل */overflow-y: auto;overscroll-behavior: contain;scroll-behavior: smooth;}
+.episodes.scrollable::-webkit-scrollbar{width: 6px;}
+.episodes.scrollable::-webkit-scrollbar-thumb{background: rgba(255,255,255,.15);border-radius: 10px;}
+
+/* ====== الغلاف ====== */
+.hero{min-height:420px;background:linear-gradient(to bottom,rgba(11,18,32,.35),rgba(11,18,32,.55),rgba(11,18,32,1)),var(--bg) center top / cover no-repeat;padding:20px 16px 90px;border-radius:0 0 24px 24px;}
+.hero-info{max-width:85%;margin-top:auto;}
+.hero-info h2{font-size:22px;margin-bottom:20px;}
+
+/* ====== الوصف ====== */
+.description{max-width:900px;margin:10px auto;padding:0 14px;line-height:1.9;color:#d1d5db;font-size:15px;}
+
+/* الشكل العام للفقاعة */
+.badge{position:absolute;padding:4px 10px;font-size:10px;font-weight:700;color:#fff;background:rgba(15,23,42,.30); /* شفافية */backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.15);border-radius:999px;z-index:5;pointer-events:none;}
+/* الزوايا */
+.badge.top-right{top:8px;right:8px;}
+.badge.top-left{top:8px;left:8px;}
+.badge.bottom-right{bottom:60px;right:8px;}
