@@ -34,7 +34,7 @@ body{margin:0;font-family:'Cairo',system-ui;background:#0b1220;color:#fff}
 .episodes button{background:rgba(15,23,42,.30);backdrop-filter:blur(6px);color:#fff;border:0;border-radius:999px;padding:12px 20px;font-size:17px;font-weight:700;cursor:pointer;white-space:nowrap;transition:.25s;margin:5px auto;}
 .episodes button:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,63,94,.4);}
 /* سحب ناعم للحلقات عند الكثرة */
-.episodes.scrollable{max-height: 55vh;       /* ارتفاع مناسب للموبايل */overflow-y: auto;overscroll-behavior: contain;scroll-behavior: smooth;}
+.episodes.scrollable{max-height: 25vh;       /* ارتفاع مناسب للموبايل */overflow-y: auto;overscroll-behavior: contain;scroll-behavior: smooth;}
 .episodes.scrollable::-webkit-scrollbar{width: 6px;}
 .episodes.scrollable::-webkit-scrollbar-thumb{background: rgba(255,255,255,.15);border-radius: 10px;}
 
