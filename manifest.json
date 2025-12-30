@@ -1,7 +1,6 @@
 {
-  "name": "استراحة أشهب21",
+  "name": "🎥 استراحة أشهب21 🍿",
   "short_name": "استراحة أشهب21",
-  "description": "مكتبة استراحة أشهب21",
   "start_url": "/21/index.html",
   "scope": "/21/",
   "display": "standalone",
@@ -20,3 +19,4 @@
     }
   ]
 }
+
