@@ -4,8 +4,5 @@ t.onclick=()=>document.body.classList.toggle('light');
 
 // pwa
 let deferred;
-window.addEventListener('beforeinstallprompt',e=>{
-  e.preventDefault();deferred=e;
-  installBtn.hidden=false;
-});
+window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferred=e;installBtn.hidden=false;});
 installBtn.onclick=()=>deferred&&deferred.prompt();

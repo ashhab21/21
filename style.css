@@ -52,3 +52,13 @@ body{margin:0;font-family:'Cairo',system-ui;background:#0b1220;color:#fff}
 .badge.top-right{top:8px;right:8px;}
 .badge.top-left{top:8px;left:8px;}
 .badge.bottom-right{bottom:60px;right:8px;}
+
+/* ====== فقاعة Brave ====== */
+.brave-tip{position:fixed; bottom:24px; left:50%; transform:translateX(-50%) translateY(40px); display:flex; align-items:center; gap:14px; background:rgba(15,23,42,.65); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); color:#fff; padding:14px 18px; border-radius:18px; border:1px solid rgba(255,255,255,.15); box-shadow:0 20px 40px rgba(0,0,0,.5); z-index:9999; opacity:0; animation: braveIn .6s cubic-bezier(.4,0,.2,1) forwards; max-width:90%; cursor:pointer;}
+.brave-img{font-size:28px; flex-shrink:0;}
+.brave-text{display:flex; flex-direction:column; font-size:14px; line-height:1.4;}
+.brave-text strong{font-size:15px; color:#fde047;}
+.brave-tip:active{transform:translateX(-50%) scale(.97);}
+@keyframes braveIn{to{opacity:1; transform:translateX(-50%) translateY(0);}}
+.brave-tip.hide{animation: braveOut .45s cubic-bezier(.4,0,.2,1) forwards;}
+@keyframes braveOut{from{ opacity:1; transform:translateX(-50%) translateY(0) scale(1);}to{opacity:0;transform:translateX(-50%) translateY(24px) scale(.96);}

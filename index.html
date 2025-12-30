@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#0b1220">
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
 <meta charset="utf-8">
 <title>استراحة أشهب21</title>
@@ -10,14 +12,14 @@
 </head>
 <body class="dark">
 <header class="top">
-  <h1 class="logo"><span>استراحة</span><strong>أشهب<span>21</span></strong></h1>
+  <h1 class="logo" href="الضارية.html"><span>استراحة</span><strong>أشهب<span>21</span></strong></h1>
   <div class="actions">
     <!-- <button id="themeToggle">🌗</button> -->
     <button id="installBtn" hidden>📲 تثبيت</button>
   </div>
 </header>
 
-<section class="card-grid"><i>المسلسلات التركية</i><br>
+<section class="card-grid"><i>المسلسلات التركية ✨</i><br>
 
 <a class="card" href="orhan.html"><span class="badge top-right">مترجم 🎤</span><span class="badge top-left">تركي 🇹🇷</span><span class="badge bottom-right">الموسم 1</span><img src="https://image.tmdb.org/t/p/w500/k9HP6u6qEC5WT44TsFc32PslYEu.jpg"><div class="card-info"><b>المؤسس أورهان</b></div></a>
 
@@ -45,7 +47,7 @@
 
 </section>
 
-<section class="card-grid"><i>المسلسلات العربية</i><br>
+<section class="card-grid"><i>المسلسلات العربية ✨</i><br>
 
 <a class="card" href="الضارية.html"><span class="badge top-right">مدبلج 🎤</span><span class="badge top-left">سعودي 🇸🇦</span><span class="badge bottom-right">الموسم 1</span><img src="https://media.themoviedb.org/t/p/w220_and_h330_face/1yfDesE037f2sB5BzqO0nfIycqs.jpg"><div class="card-info"><b>الضارية</b><br></div></a>
 
@@ -57,11 +59,15 @@
 
 </section>
 
-<section class="card-grid"><i>أنمي</i><br>
+<section class="card-grid"><i>أنمي ✨</i><br>
 
 <a class="card" href="one-piece.html"><span class="badge top-right">مترجم 🎤</span><span class="badge top-left">يباني 🇯🇵</span><span class="badge bottom-right">ارك ايج هيد 2</span><img src="https://image.tmdb.org/t/p/original/zftx59xeJOJtsmRdwqo4rn6zNpj.jpg"><div class="card-info"><b>One Piece</b></div></a>
 
 </section>
+
+<div id="brave-tip" class="brave-tip" role="button" aria-label="Open Brave Browser on Play Store"><div class="brave-img"><img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/brave-browser-icon.png" style="width: 35px; height: 35px;"></div><div class="brave-text"><strong>لتجربة مشاهدة أفضل</strong><span>ننصح باستخدام متصفح <b style="color:#FB542B;">Brave</b> لتجنب الإعلانات المزعجة</span></div></div>
+
+<script>document.addEventListener("DOMContentLoaded", async () => {const tip = document.getElementById("brave-tip");if (!tip) return;try{if (navigator.brave && await navigator.brave.isBrave()) {tip.remove();return;}}catch(e){}const ua = navigator.userAgent.toLowerCase();let targetUrl = "https://brave.com/download/";if (/android/.test(ua)) {targetUrl = "https://play.google.com/store/apps/details?id=com.brave.browser";} else if (/iphone|ipad|ipod/.test(ua)) {targetUrl = "https://apps.apple.com/app/brave-private-web-browser/id1052879175";}tip.addEventListener("click", () => {if (navigator.vibrate) {navigator.vibrate(20);}window.open(targetUrl, "_blank");tip.classList.add("hide");setTimeout(() => tip.remove(), 450);});setTimeout(() => {if (!tip.classList.contains("hide")) {tip.classList.add("hide");setTimeout(() => tip.remove(), 450);}}, 4000);});</script>
 
 <script src="main.js"></script>
 </body>
