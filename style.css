@@ -61,4 +61,23 @@ body{margin:0;font-family:'Cairo',system-ui;background:#0b1220;color:#fff}
 .brave-tip:active{transform:translateX(-50%) scale(.97);}
 @keyframes braveIn{to{opacity:1; transform:translateX(-50%) translateY(0);}}
 .brave-tip.hide{animation: braveOut .45s cubic-bezier(.4,0,.2,1) forwards;}
-@keyframes braveOut{from{ opacity:1; transform:translateX(-50%) translateY(0) scale(1);}to{opacity:0;transform:translateX(-50%) translateY(24px) scale(.96);}
+@keyframes braveOut{from{ opacity:1; transform:translateX(-50%) translateY(0) scale(1);}to{opacity:0;transform:translateX(-50%) translateY(24px) scale(.96);}}
+
+/* ====== زر الأحدث ====== */
+/* حاوية الزر في الوسط */
+.latest-center{display:flex; justify-content:center; margin:24px 0;}
+/* زر الأحدث الكبير */
+.latest-mega{position:relative; display:flex; flex-direction:column; align-items:center; /* gap:0.5px; */ padding:10px 15px; border-radius:24px; text-decoration:none; background:rgba(15,23,42,.65); color:#fff; font-weight:900; box-shadow:0 10px 15px rgba(0,0,0,.45); overflow:hidden; transition:.3s;}
+/* أيقونة */
+.latest-mega .icon{font-size:20px;}
+/* النص */
+.latest-mega .text{font-size:22px; color:red;}
+.latest-mega small{font-size:13px; font-weight:600; color:#fff; opacity:.8;}
+/* تأثير تنفّس ناعم */
+.latest-mega{animation:softPulse 3s infinite;}
+@keyframes softPulse{0%{transform:scale(1)} 50%{transform:scale(1.04)} 100%{transform:scale(1)}}
+/* لمعان خفيف متحرك */
+.latest-mega::before{content:""; position:absolute; inset:0; background:linear-gradient(120deg,transparent 35%,rgba(255,255,255,.5),transparent 65%); transform:translateX(-120%); animation:megaShine 4s infinite;}
+@keyframes megaShine{0%{transform:translateX(-120%)} 60%{transform:translateX(120%)} 100%{transform:translateX(120%)}}
+/* تفاعل */
+.latest-mega:active{transform:scale(.97);}
