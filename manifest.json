@@ -1,8 +1,8 @@
 {
   "name": "🎥 استراحة أشهب21 🍿",
   "short_name": "استراحة أشهب21",
-  "start_url": "/21/index.html",
-  "scope": "/21/",
+  "start_url": "21/index.html",
+  "scope": "21/",
   "display": "standalone",
   "background_color": "#0b1220",
   "theme_color": "#0b1220",
