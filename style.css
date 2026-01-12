@@ -81,3 +81,15 @@ body{margin:0;font-family:'Cairo',system-ui;background:#0b1220;color:#fff}
 @keyframes megaShine{0%{transform:translateX(-120%)} 60%{transform:translateX(120%)} 100%{transform:translateX(120%)}}
 /* تفاعل */
 .latest-mega:active{transform:scale(.97);}
+
+/* ====== فقاعة التثبيت ====== */
+.install-bubble{position:fixed;bottom:20px;right:18px;width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,#22c55e,#16a34a);display:flex;align-items:center;justify-content:center;z-index:999;box-shadow:0 12px 35px rgba(34,197,94,.55);animation:floatPulse 2s infinite;cursor:pointer;}
+
+.install-bubble img{width:36px;height:36px;filter:drop-shadow(0 2px 4px rgba(0,0,0,.4));}
+
+@keyframes floatPulse{0%{transform:scale(1)}50%{transform:scale(1.12)}100%{transform:scale(1)}}
+
+/* تنبيه النجاح */
+.install-toast{position:fixed;bottom:100px;left:50%;transform:translateX(-50%) translateY(20px);background:rgba(15,23,42,.95);color:#fff;padding:14px 22px;border-radius:999px;font-size:14px;font-weight:800;opacity:0;pointer-events:none;transition:.4s;box-shadow:0 8px 30px rgba(0,0,0,.5);}
+
+.install-toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
