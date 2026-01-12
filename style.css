@@ -83,13 +83,75 @@ body{margin:0;font-family:'Cairo',system-ui;background:#0b1220;color:#fff}
 .latest-mega:active{transform:scale(.97);}
 
 /* ====== فقاعة التثبيت ====== */
-.install-bubble{position:fixed;bottom:20px;right:18px;width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,#22c55e,#16a34a);display:flex;align-items:center;justify-content:center;z-index:999;box-shadow:0 12px 35px rgba(34,197,94,.55);animation:floatPulse 2s infinite;cursor:pointer;}
+.install-bubble{
+position:fixed;
+bottom:22px;
+right:18px;
+width:64px;
+height:64px;
+border-radius:50%;
+background:rgba(34,197,94,.25);
+backdrop-filter:blur(10px);
+display:flex;
+align-items:center;
+justify-content:center;
+z-index:999;
+box-shadow:0 10px 40px rgba(34,197,94,.45);
+animation:pulse 2.2s infinite;
+cursor:pointer;
+}
 
-.install-bubble img{width:36px;height:36px;filter:drop-shadow(0 2px 4px rgba(0,0,0,.4));}
+.install-bubble img{
+width:34px;
+height:34px;
+}
 
-@keyframes floatPulse{0%{transform:scale(1)}50%{transform:scale(1.12)}100%{transform:scale(1)}}
+@keyframes pulse{
+0%{transform:scale(1)}
+50%{transform:scale(1.15)}
+100%{transform:scale(1)}
+}
 
-/* تنبيه النجاح */
-.install-toast{position:fixed;bottom:100px;left:50%;transform:translateX(-50%) translateY(20px);background:rgba(15,23,42,.95);color:#fff;padding:14px 22px;border-radius:999px;font-size:14px;font-weight:800;opacity:0;pointer-events:none;transition:.4s;box-shadow:0 8px 30px rgba(0,0,0,.5);}
+/* انفجار */
+.install-bubble.boom{
+animation:boom .45s forwards;
+}
+@keyframes boom{
+to{transform:scale(2);opacity:0}
+}
 
-.install-toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+/* Toast */
+.install-toast{
+position:fixed;
+bottom:100px;
+left:50%;
+transform:translateX(-50%);
+background:#020617;
+padding:14px 22px;
+border-radius:999px;
+font-weight:800;
+opacity:0;
+transition:.4s;
+z-index:999;
+}
+.install-toast.show{opacity:1}
+
+/* Confetti */
+#confetti span{
+position:fixed;
+width:8px;
+height:8px;
+background:gold;
+top:50%;
+left:50%;
+animation:confetti 1.2s forwards;
+}
+@keyframes confetti{
+to{
+transform:translate(
+calc(-150px + 300px * var(--x)),
+calc(-150px + 300px * var(--y))
+) rotate(720deg);
+opacity:0;
+}
+}
