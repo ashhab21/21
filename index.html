@@ -105,62 +105,27 @@
 
 <script src="main.js"></script>
 <script>
-const btn = document.getElementById('installBtn');
-let deferredPrompt = null;
-
-/* كشف إذا التطبيق مثبت */
-if (window.matchMedia('(display-mode: standalone)').matches) {
-  // التطبيق مثبت → لا زر
-} else {
-  btn.hidden = false;
-}
-
-/* التقاط التثبيت الحقيقي */
-window.addEventListener('beforeinstallprompt', e => {
-  e.preventDefault();
-  deferredPrompt = e;
-});
-
-/* الضغط */
-btn.onclick = async () => {
-  if (navigator.vibrate) navigator.vibrate(40);
-
-  /* لو التثبيت مدعوم */
-  if (deferredPrompt) {
-    deferredPrompt.prompt();
-    const { outcome } = await deferredPrompt.userChoice;
-    deferredPrompt = null;
-
-    if (outcome === 'accepted') {
-      btn.remove();
-    }
-  } 
-  /* زر إجباري (الخطة B) */
-  else {
-    showManualInstall();
-  }
-};
-
-/* التثبيت الإجباري */
-function showManualInstall(){
-  const ua = navigator.userAgent.toLowerCase();
-
-  if (/android/.test(ua)) {
-    alert('اضغط ⋮ ثم "إضافة إلى الشاشة الرئيسية"');
-  } 
-  else if (/iphone|ipad/.test(ua)) {
-    alert('اضغط زر المشاركة ⬆️ ثم "إضافة إلى الشاشة الرئيسية"');
-  } 
-  else {
-    alert('Chrome: اضغط أيقونة التثبيت في شريط العنوان');
-  }
-}
-
+if ('serviceWorker' in navigator) {navigator.serviceWorker.register('/21/service-worker.js');}window.addEventListener('beforeinstallprompt', (e) => {e.preventDefault();const promptEvent = e;setTimeout(() => {if (confirm("هل تريد تثبيت مكتبة أشهب21 على جهازك؟ 🔥🎥")) {promptEvent.prompt();}}, 1000);});
 </script>
+<script>
+let deferredPrompt;const installBtn = document.getElementById('installBtn');window.addEventListener('beforeinstallprompt', (e) => {
+// نمنع Chrome من إظهار التنبيه الافتراضي
+e.preventDefault();
+// نخزن الحدث
+deferredPrompt = e;
+// نُظهر زر التثبيت
+installBtn.style.display = 'block';});
+// عند الضغط على زر التثبيت
+installBtn.addEventListener('click', async () => {if (!deferredPrompt) return;
+// إظهار نافذة التثبيت الرسمية
+deferredPrompt.prompt();
+const { outcome } = await deferredPrompt.userChoice;console.log('Install choice:', outcome);
+// نخفي الزر بعد الاختيار
+deferredPrompt = null;installBtn.style.display = 'none';});
+// لو التطبيق تثبّت بالفعل، نخفي الزر
+window.addEventListener('appinstalled', () => {console.log('App installed');installBtn.style.display = 'none';});</script>
 
-<button id="installBtn" class="install-btn" hidden>
-  📲 إضافة التطبيق
-</button>
+<button id="installBtn" style="display:none; position:fixed; bottom:20px; right:20px; padding:12px 18px; font-size:15px; border-radius:10px; border:0; background:#38bdf8; color:#000; font-weight:700; z-index:9999; cursor:pointer;">📲 تثبيت المكتبة</button>
 
 </body>
 </html>
