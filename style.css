@@ -81,3 +81,27 @@ body{margin:0;font-family:'Cairo',system-ui;background:#0b1220;color:#fff}
 @keyframes megaShine{0%{transform:translateX(-120%)} 60%{transform:translateX(120%)} 100%{transform:translateX(120%)}}
 /* تفاعل */
 .latest-mega:active{transform:scale(.97);}
+
+/* ====== فقاعة التثبيت ====== */
+.install-btn{
+position:fixed;
+bottom:22px;
+left:50%;
+transform:translateX(-50%);
+background:linear-gradient(135deg,#22c55e,#16a34a);
+color:#fff;
+border:0;
+border-radius:999px;
+padding:14px 26px;
+font-size:17px;
+font-weight:900;
+box-shadow:0 10px 30px rgba(34,197,94,.5);
+cursor:pointer;
+z-index:999;
+animation:pulse 2s infinite;
+}
+@keyframes pulse{
+0%{transform:translateX(-50%) scale(1)}
+50%{transform:translateX(-50%) scale(1.08)}
+100%{transform:translateX(-50%) scale(1)}
+}

@@ -15,7 +15,10 @@
   <h1 class="logo"><span>استراحة</span><strong>أشهب<span>21</span></strong></h1><br>
   <div class="actions">
     <!-- <button id="themeToggle">🌗</button> -->
-    <!-- <button id="installBtn" hidden>📲 تثبيت</button> -->
+<button id="installBtn" class="install-btn" hidden>
+  📲 إضافة التطبيق
+</button>
+
   </div>
 </header>
 
@@ -105,27 +108,43 @@
 
 <script src="main.js"></script>
 <script>
-if ('serviceWorker' in navigator) {navigator.serviceWorker.register('/21/service-worker.js');}window.addEventListener('beforeinstallprompt', (e) => {e.preventDefault();const promptEvent = e;setTimeout(() => {if (confirm("هل تريد تثبيت مكتبة أشهب21 على جهازك؟ 🔥🎥")) {promptEvent.prompt();}}, 1000);});
-</script>
-<script>
-let deferredPrompt;const installBtn = document.getElementById('installBtn');window.addEventListener('beforeinstallprompt', (e) => {
-// نمنع Chrome من إظهار التنبيه الافتراضي
-e.preventDefault();
-// نخزن الحدث
-deferredPrompt = e;
-// نُظهر زر التثبيت
-installBtn.style.display = 'block';});
-// عند الضغط على زر التثبيت
-installBtn.addEventListener('click', async () => {if (!deferredPrompt) return;
-// إظهار نافذة التثبيت الرسمية
-deferredPrompt.prompt();
-const { outcome } = await deferredPrompt.userChoice;console.log('Install choice:', outcome);
-// نخفي الزر بعد الاختيار
-deferredPrompt = null;installBtn.style.display = 'none';});
-// لو التطبيق تثبّت بالفعل، نخفي الزر
-window.addEventListener('appinstalled', () => {console.log('App installed');installBtn.style.display = 'none';});</script>
+let deferredPrompt = null;
+const installBtn = document.getElementById('installBtn');
 
-<button id="installBtn" style="display:none; position:fixed; bottom:20px; right:20px; padding:12px 18px; font-size:15px; border-radius:10px; border:0; background:#38bdf8; color:#000; font-weight:700; z-index:9999; cursor:pointer;">📲 تثبيت المكتبة</button>
+/* تسجيل SW */
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('./service-worker.js');
+}
+
+/* إذا التطبيق مثبت → لا زر */
+if (window.matchMedia('(display-mode: standalone)').matches) {
+  installBtn.hidden = true;
+}
+
+/* التثبيت الفعلي فقط */
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+
+  // إظهار الزر بعد تفاعل حقيقي
+  installBtn.hidden = false;
+});
+
+/* الضغط */
+installBtn.addEventListener('click', async () => {
+  if (!deferredPrompt) return;
+
+  if (navigator.vibrate) navigator.vibrate(30);
+
+  deferredPrompt.prompt();
+  const { outcome } = await deferredPrompt.userChoice;
+
+  if (outcome === 'accepted') {
+    installBtn.hidden = true;
+  }
+
+  deferredPrompt = null;
+});
 
 </body>
 </html>
